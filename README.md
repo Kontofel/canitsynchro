@@ -43,9 +43,12 @@ python3 canitsynchro.py"[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [A
   The valid syntex for cassete models is:
 
   CS-MXXXX (MTB)
+  
   CS-RXXXX (Road)
-  CS-HGXXX (General purpose HG Cassetes)
-This isnt implemented yet!
+  
+  CS-HGXXX (General purpose HG Cassetes
+
+The Database isnt implemented yet!
 
   ### Advice for interpreting results
   
