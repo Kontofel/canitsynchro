@@ -1,11 +1,11 @@
 # canitsynchro
 Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift mapping
 
-## Ussage:
+## Ussage
 
 python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
 
-## Arguments:
+## Arguments
   -h, --help    show help
   
   -c 
@@ -33,7 +33,7 @@ python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL O
 
   Example with Road 2x12 using the Cassette database:
   ´python3 canitsynchro.py "34/50" -c "CS-R9200 11-34"´
-### Info:
+## Info
   Valid syntaxes for cassete spacing are:
   - "11, 13, ..."
   - "11 13 ..."
