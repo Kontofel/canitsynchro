@@ -9,7 +9,7 @@ def calculate_step_down(ratio_current, ratio_easier):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Constraint based crossover calculator for shimano syncro shift",
+        description="Constraint based crossover calculator for shimano synchro shift",
         usage='python3 canitsynchro.py "[cassette]" "[chainrings]" [options]',
         epilog="""
 Examples:
