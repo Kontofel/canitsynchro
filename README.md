@@ -3,7 +3,7 @@ Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift ma
 
 ## Ussage:
 
-python3 canitsynchro.py "[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
+python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
 
 ## Arguments:
   -h, --help    show help
@@ -39,7 +39,7 @@ python3 canitsynchro.py "[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [
   - "11 13 ..."
 
   Extra spaces aswell as duplicates will be ignored (for example typing "11  13 13 15 17 ..." will be treated as "11, 13, 15, 17, ...")
-
+  Chainrings get auto sorted to Small/Large (e.g 50/34 becomes 34/50 internally)
 
 
   The valid syntex for cassete models is:
