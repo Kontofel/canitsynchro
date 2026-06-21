@@ -3,7 +3,7 @@ Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift ma
 
 ## Ussage:
 
-python3 canitsynchro.py"[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
+python3 canitsynchro.py "[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
 
 ## Arguments:
   -h, --help    show help
@@ -42,14 +42,14 @@ python3 canitsynchro.py"[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [A
 
   The valid syntex for cassete models is:
 
-  CS-MXXXX (MTB)
+  CS-MXXXX [Range] (MTB)
   
-  CS-RXXXX (Road)
+  CS-RXXXX [Range] (Road)
   
-  CS-HGXXX (General purpose HG Cassetes
-
-The Database isnt implemented yet!
-
+  CS-HGXXX [Range] (General purpose HG Cassetes)
+  
+  alternatively check cassettes.json for the entire list
+  
   ### Advice for interpreting results
   
   This is personal preference (wich is why you can tune it)
@@ -62,7 +62,4 @@ The Database isnt implemented yet!
 This tool is meant to save you from creating spreadsheets to calculate the possible crossover, i hope it does so.
 
 ### more to come
-i am intending on making the tool a little more user friendly in the future by adding a premade list of all the cassetes you may use in a 2x setup
-i.e you will be able to type "M9000 11-40" insthead of the cogs themselves.
-
-First i'll be adding shimano, botique makers will follow eventually
+botique makers cassettes will follow eventually

@@ -51,10 +51,13 @@ Examples:
     raw_cassette_str = args.cassette
 
     if raw_cassette_str in db:
-        print(f"I: Loaded cassette '{raw_cassette_str}' from database.")
+        print(f"> Loaded cassette '{raw_cassette_str}' from database! ")
         raw_cassette_str = db[raw_cassette_str]
     elif raw_cassette_str == 'none':
         print("E: No cassette specified. Use '-c' to provide a database preset name or cog sizes.", file=sys.stderr)
+        sys.exit(1)
+    elif any(char.isalpha() for char in raw_cassette_str):
+        print(f"\nE: '{args.cassette}' not found in database, and it doesn't look like raw numbers!", file=sys.stderr)
         sys.exit(1)
 
     try:
