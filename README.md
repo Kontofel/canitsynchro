@@ -49,4 +49,4 @@ This tool is meant to save you from creating spreadsheets to calculate the possi
 
 ### more to come
 i am intending on making the tool a little more user friendly in the future by adding a premade list of all the cassetes you may use in a 2x setup
-i.e you will be able to type "M9000 11-42" insthead of the cogs themselves
+i.e you will be able to type "M9000 11-40" insthead of the cogs themselves
