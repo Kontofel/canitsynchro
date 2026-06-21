@@ -5,7 +5,7 @@ Python constraint solver for Shimano Di2 Full Synchronised Shift mapping
 
 python3 canitsynchro.py "[CASSETTE]" "[CHAINRING SMALL/LARGE]" -[OPTIONS]
 
-Arguments:
+## Arguments:
   -h, --help    show help
   
   -min
@@ -28,7 +28,7 @@ Arguments:
   
   ´python3 canitsynchro.py "11 13 15 17 19 21 24 27 31 35 40" "24/34"´
   
-  Info:
+### Info:
   Valid syntaxes for cassete spacing are:
   - "11, 13, ..."
   - "11 13 ..."
@@ -36,7 +36,7 @@ Arguments:
   Extra spaces aswell as duplicates will be ignored (for example typing "11  13 13 15 17 ..." will be treated as "11, 13, 15, 17, ...")
   
   
-  Advice for interpreting results:
+  ### Advice for interpreting results
   
   This is personal preference (wich is why you can tune it)
   but generally you want to choose the crossover that:
