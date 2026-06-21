@@ -1,5 +1,7 @@
 import sys
 import argparse
+import json
+import os
 
 def calculate_step_up(ratio_current, ratio_harder):
     return (ratio_harder / ratio_current) - 1.0
@@ -7,23 +9,34 @@ def calculate_step_up(ratio_current, ratio_harder):
 def calculate_step_down(ratio_current, ratio_easier):
     return 1.0 - (ratio_easier / ratio_current)
 
+def load_database():
+    db_path = 'cassettes.json'
+    if os.path.exists(db_path):
+        try:
+            with open(db_path, 'r') as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            print(f"W: Could not parse {db_path}. Ensure it is valid JSON.", file=sys.stderr)
+    return {}
+
 def main():
     parser = argparse.ArgumentParser(
         description="Constraint based crossover calculator for shimano synchro shift",
-        usage='python3 canitsynchro.py "[cassette]" "[chainrings]" [options]',
+        usage='python3 canitsynchro.py "[chainrings]" [options]',
         epilog="""
 Examples:
-  # calculation with 2x11 MTB using default constraints
-  python3 canitsynchro.py "11,13,15,17,19,21,24,27,31,35,40" "26/36"
+  # Passing a named cassette from the database
+  python3 canitsynchro.py "30/46" -c "CS-M9200 11-34"
 
-  # Gravel 2x12 Setup with looser constraints
-  python3 canitsynchro.py "11,12,13,14,15,17,19,21,24,30,34" "30/46" -min 0.05 -max 0.16 -adj 0.1 -small 1 -big 0
+  # Passing raw custom cassette numbers directly
+  python3 canitsynchro.py "30/46" -c "11,12,13,14,15,17,19,21,24,30,34"
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
-    parser.add_argument('cassette', type=str, help='Comma or space separated string of cogs')
     parser.add_argument('chainrings', type=str, help='Slash separated string of small/large chainrings')
+
+    parser.add_argument('-c', '--cassette', type=str, default='none', help='Database preset name OR comma/space separated string of cogs (default: "none")')
 
     parser.add_argument('-min', type=float, default=0.08, help='Minimum Jump in percent divided by 100 (default: 0.08)')
     parser.add_argument('-max', type=float, default=0.16, help='Maximum Jump in percent divided by 100 (default: 0.16)')
@@ -34,8 +47,18 @@ Examples:
 
     args = parser.parse_args()
 
+    db = load_database()
+    raw_cassette_str = args.cassette
+
+    if raw_cassette_str in db:
+        print(f"i: Loaded cassette '{raw_cassette_str}' from database.")
+        raw_cassette_str = db[raw_cassette_str]
+    elif raw_cassette_str == 'none':
+        print("E: No cassette specified. Use '-c' to provide a database preset name or cog sizes.", file=sys.stderr)
+        sys.exit(1)
+
     try:
-        cassette = sorted(list(set([int(c.strip()) for c in args.cassette.replace(',', ' ').split() if c.strip()])))
+        cassette = sorted(list(set([int(c.strip()) for c in raw_cassette_str.replace(',', ' ').split() if c.strip()])))
         chainrings = sorted([int(r.strip()) for r in args.chainrings.split('/') if r.strip()])
         if len(chainrings) != 2:
             raise ValueError("W: Chainrings must look like: '34/50'")
@@ -121,7 +144,6 @@ Examples:
     for up in valid_upshifts:
         for down in valid_downshifts:
             actual_hysteresis = down['trigger_idx'] - up['target_idx']
-            # fix the logic edge cases
             if actual_hysteresis >= 0:
                 matched_pairs.append((actual_hysteresis, up, down))
 
