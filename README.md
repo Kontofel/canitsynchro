@@ -1,12 +1,15 @@
 # canitsynchro
-Python constraint solver for Shimano Di2 Full Synchronised Shift mapping
+Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift mapping
 
 ## Ussage:
 
-python3 canitsynchro.py "[CASSETTE]" "[CHAINRING SMALL/LARGE]" -[OPTIONS]
+python3 canitsynchro.py"[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
 
 ## Arguments:
   -h, --help    show help
+  
+  -c 
+  Cassette model name OR comma/space separated string of cogs
   
   -min
   Minimum Jump in percent divided by 100 (default: 0.08)
@@ -26,7 +29,7 @@ python3 canitsynchro.py "[CASSETTE]" "[CHAINRING SMALL/LARGE]" -[OPTIONS]
 
   Example ussage for calculating a 2x11 MTB Setup with the default settings:
   
-  ´python3 canitsynchro.py "11 13 15 17 19 21 24 27 31 35 40" "24/34"´
+  ´python3 canitsynchro.py "24/34" -c "11 13 15 17 19 21 24 27 31 35 40"´
   
 ### Info:
   Valid syntaxes for cassete spacing are:
@@ -34,8 +37,16 @@ python3 canitsynchro.py "[CASSETTE]" "[CHAINRING SMALL/LARGE]" -[OPTIONS]
   - "11 13 ..."
 
   Extra spaces aswell as duplicates will be ignored (for example typing "11  13 13 15 17 ..." will be treated as "11, 13, 15, 17, ...")
-  
-  
+
+
+
+  The valid syntex for cassete models is:
+
+  CS-MXXXX (MTB)
+  CS-RXXXX (Road)
+  CS-HGXXX (General purpose HG Cassetes)
+This isnt implemented yet!
+
   ### Advice for interpreting results
   
   This is personal preference (wich is why you can tune it)
@@ -49,4 +60,6 @@ This tool is meant to save you from creating spreadsheets to calculate the possi
 
 ### more to come
 i am intending on making the tool a little more user friendly in the future by adding a premade list of all the cassetes you may use in a 2x setup
-i.e you will be able to type "M9000 11-40" insthead of the cogs themselves
+i.e you will be able to type "M9000 11-40" insthead of the cogs themselves.
+
+First i'll be adding shimano, botique makers will follow eventually
