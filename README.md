@@ -1,7 +1,7 @@
 # canitsynchro
 Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift mapping
 
-## Ussage
+## Usage
 
 python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
 
@@ -27,41 +27,42 @@ python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL O
   -big
   Number of large cogs to restrict on the big ring (default: 2)
 
-  Example ussage for calculating a 2x11 MTB Setup with the default settings:
+  Example usage for calculating a 2x11 MTB Setup with the default settings:
   
-  ´python3 canitsynchro.py "24/34" -c "11 13 15 17 19 21 24 27 31 35 40"´
+  `python3 canitsynchro.py "24/34" -c "11 13 15 17 19 21 24 27 31 35 40"`
 
   Example with Road 2x12 using the Cassette database:
-  ´python3 canitsynchro.py "34/50" -c "CS-R9200 11-34"´
+  `python3 canitsynchro.py "34/50" -c "CS-R9200 11-34"`
+
 ## Info
-  Valid syntaxes for cassete spacing are:
+  Valid syntaxes for cassette spacing are:
   - "11, 13, ..."
   - "11 13 ..."
 
-  Extra spaces aswell as duplicates will be ignored (for example typing "11  13 13 15 17 ..." will be treated as "11, 13, 15, 17, ...")
+  Extra spaces as well as duplicates will be ignored (for example typing "11  13 13 15 17 ..." will be treated as "11, 13, 15, 17, ...")
   Chainrings get auto sorted to Small/Large (e.g 50/34 becomes 34/50 internally)
 
 
-  The valid syntex for cassete models is:
+  The valid syntax for cassette models is:
 
   CS-MXXXX [Range] (MTB)
   
   CS-RXXXX [Range] (Road)
   
-  CS-HGXXX [Range] (General purpose HG Cassetes)
+  CS-HGXXX [Range] (General purpose HG Cassettes)
   
   alternatively check cassettes.json for the entire list
   
   ### Advice for interpreting results
   
-  This is personal preference (wich is why you can tune it)
+  This is personal preference (which is why you can tune it)
   but generally you want to choose the crossover that:
   - has a gear step close to what comes before and after
   - isn't too big, neither too small
-  - happens in the middle of the cassete
+  - happens in the middle of the cassette
   - does not severely bias a certain ring 
   
-This tool is meant to save you from creating spreadsheets to calculate the possible crossover, i hope it does so.
+This tool is meant to save you from creating spreadsheets to calculate the possible crossover, I hope it does so.
 
 ### more to come
-botique makers cassettes will follow eventually
+boutique makers cassettes will follow eventually
