@@ -22,11 +22,11 @@ def load_database():
 def main():
     parser = argparse.ArgumentParser(
         description="Constraint based crossover calculator for shimano synchro shift",
-        usage='python3 canitsynchro.py "[chainrings]" [options]',
+        usage='python3 canitsynchro.py "[chainrings]" -c "[cassette]" [options]',
         epilog="""
 Examples:
   # Passing a named cassette from the database
-  python3 canitsynchro.py "30/46" -c "CS-M9200 11-34"
+  python3 canitsynchro.py "30/46" -c "CS-R9200 11-34"
 
   # Passing raw custom cassette numbers directly
   python3 canitsynchro.py "30/46" -c "11,12,13,14,15,17,19,21,24,30,34"
@@ -51,7 +51,7 @@ Examples:
     raw_cassette_str = args.cassette
 
     if raw_cassette_str in db:
-        print(f"i: Loaded cassette '{raw_cassette_str}' from database.")
+        print(f"I: Loaded cassette '{raw_cassette_str}' from database.")
         raw_cassette_str = db[raw_cassette_str]
     elif raw_cassette_str == 'none':
         print("E: No cassette specified. Use '-c' to provide a database preset name or cog sizes.", file=sys.stderr)
