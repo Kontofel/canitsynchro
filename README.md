@@ -30,7 +30,9 @@ python3 canitsynchro.py "[CHAINRING SMALL/LARGE]" -c "[CASSETTE MODEL / COGS]" [
   Example ussage for calculating a 2x11 MTB Setup with the default settings:
   
   ´python3 canitsynchro.py "24/34" -c "11 13 15 17 19 21 24 27 31 35 40"´
-  
+
+  Example with Road 2x12 using the Cassette database:
+  ´python3 canitsynchro.py "34/50" -c "CS-R9200 11-34"´
 ### Info:
   Valid syntaxes for cassete spacing are:
   - "11, 13, ..."
