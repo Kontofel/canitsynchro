@@ -1,6 +1,6 @@
 # canitsynchro
-Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift mapping
-
+Python constraint solver for Shimano Di2 (or similar) Full Synchronised Shift mapping,
+or just a tool to find out when to front shift
 ## Usage
 
 python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL OPTIONS]
