@@ -63,6 +63,3 @@ python3 canitsynchro.py "[CHAINRING]" -c "[CASSETTE MODEL / COGS]" [ADDITIONAL O
   - does not severely bias a certain ring 
   
 This tool is meant to save you from creating spreadsheets to calculate the possible crossover, I hope it does so.
-
-### more to come
-boutique makers cassettes will follow eventually
